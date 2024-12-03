@@ -1,0 +1,8 @@
+//Consulta
+SELECT 
+    timestamp() AS timestamp, 
+    topic(3) AS thing_name, 
+    state.reported.bpm AS bpm 
+FROM '$aws/things/+/shadow/update/accepted' 
+WHERE topic(3) = "Esp32-sensor" 
+    AND state.reported.bpm > 60
